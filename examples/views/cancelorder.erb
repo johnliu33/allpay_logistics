@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>CancelC2COrder</title>
 </head>
 <script>
 var form = document.getElementById("theForm");
@@ -19,7 +19,7 @@ form.onclick = function(e) {
 };
 </script>
 <body>
-  <form action="http://logistics-stage.allpay.com.tw/Express/map" method="post" id="theForm">
+  <form action="http://logistics-stage.allpay.com.tw/Express/CancelC2COrder" method="post" id="theForm">
     <% @params.each do |k, v| %>
       <input type="text" name="<%= k %>" value="<%= v %>">
     <% end %>

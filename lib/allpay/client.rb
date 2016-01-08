@@ -4,15 +4,17 @@ require 'cgi'
 require 'digest'
 require 'allpay/errors'
 require 'allpay/core_ext/hash'
+#require 'awesome_print'
+require 'byebug'
 
 module Allpay
   class Client
-    PRODUCTION_API_HOST = 'https://payment.allpay.com.tw'.freeze
-    TEST_API_HOST = 'http://payment-stage.allpay.com.tw'.freeze
+    PRODUCTION_API_HOST = 'https://logistics.allpay.com.tw/Express/map'.freeze
+    TEST_API_HOST = 'http://logistics-stage.allpay.com.tw/Express/map'.freeze
     TEST_OPTIONS = {
-      merchant_id: '2000132',
-      hash_key: '5294y06JbISpM5x9',
-      hash_iv: 'v77hoKGq4kWxNNIS'
+      merchant_id: '2000933', #, '2000132'
+      hash_key: 'XBERn1YOvpM9nfZc',  #,'5294y06JbISpM5x9'
+      hash_iv:  'h1ONHk4P4yqbl5LK'  # 'v77hoKGq4kWxNNIS'
     }.freeze
 
     attr_reader :options
@@ -58,11 +60,14 @@ module Allpay
     end
 
     def generate_checkout_params overwrite_params = {}
-      generate_params({
-        MerchantTradeDate: Time.now.strftime('%Y/%m/%d %H:%M:%S'),
-        MerchantTradeNo: SecureRandom.hex(4),
-        PaymentType: 'aio'
+      r = generate_params({
+        # MerchantTradeDate: Time.now.strftime('%Y/%m/%d %H:%M:%S'),
+        # MerchantTradeNo: SecureRandom.hex(4),
+        # PaymentType: 'aio'
       }.merge!(overwrite_params))
+
+      puts r
+      return r
     end
 
     def request path, params = {}
@@ -78,6 +83,28 @@ module Allpay
       }
       params.delete_if{ |k, v| v.nil? }
       res = request '/Cashier/QueryTradeInfo', params
+      Hash[res.body.split('&').map!{|i| i.split('=')}]
+    end
+
+    def cancel_logistics_order logistics_id, cvs_payment_no, cvs_validation_no, platform = nil #物流下單取消
+      params = {
+        AllPayLogisticsID: logistics_id,
+        CVSPaymentNo: cvs_payment_no,
+        CVSValidationNo: cvs_validation_no
+      }
+      params.delete_if{ |k, v| v.nil? }
+
+      request '/Express/CancelC2COrder', params
+    end
+
+    def query_logistics_trade_info logistics_id, platform = nil #物流狀況查詢
+      params = {
+        AllPayLogisticsID: logistics_id,
+        TimeStamp: Time.now.to_i,
+        PlatformID: platform
+      }
+      params.delete_if{ |k, v| v.nil? }
+      res = request '/Helper/QueryLogisticsTradeInfo', params
       Hash[res.body.split('&').map!{|i| i.split('=')}]
     end
 

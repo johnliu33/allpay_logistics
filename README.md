@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/tonytonyjan/allpay.svg?branch=master)](https://travis-ci.org/tonytonyjan/allpay)
+<!--[![Build Status](https://travis-ci.org/tonytonyjan/allpay.svg?branch=master)](https://travis-ci.org/tonytonyjan/allpay)
+-->
+# Allpay Logistics 歐付寶
 
-# Allpay 歐付寶
-
-這是歐付寶 API 的 Ruby 包裝，更多資訊參考他們的[官方文件](https://www.allpay.com.tw/Content/files/%E5%85%A8%E6%96%B9%E4%BD%8D%E9%87%91%E6%B5%81%E4%BB%8B%E6%8E%A5%E6%8A%80%E8%A1%93%E6%96%87%E4%BB%B6.pdf)。
+這是歐付寶物流的 API 的 Ruby 包裝，是參考[tonytonyjan](https://github.com/tonytonyjan)的[https://github.com/tonytonyjan/allpay](https://github.com/tonytonyjan/allpay)改寫成的，更多資訊參考歐付寶的[官方文件](https://www.allpay.com.tw/Content/files/allpay_030.pdf)。
 
 - 這不是 Rails 插件，只是個 API 包裝。
 - 使用時只需要傳送需要的參數即可，不用產生檢查碼，`allpay_client` 會自己產生。
@@ -11,7 +11,7 @@
 ## 安裝
 
 ```bash
-gem install allpay_client
+gem install allpay_logistics_client
 ```
 
 ## 使用

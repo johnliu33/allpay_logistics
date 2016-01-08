@@ -1,1 +1,1 @@
-require 'allpay'
+require 'allpaylogistics'

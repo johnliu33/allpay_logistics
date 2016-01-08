@@ -1,7 +1,7 @@
 $: << File.expand_path('../../lib', __FILE__)
 require 'bundler/setup'
 require 'sinatra'
-require 'allpay'
+require 'allpaylogistics'
 require 'json'
 
 set :bind, '10.0.1.202'

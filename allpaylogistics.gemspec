@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'allpay/version'
+require 'allpaylogistics/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'allpay_client'
+  spec.name          = 'allpay_logistics'
   spec.version       = Allpay::VERSION
-  spec.authors       = ['Jian Weihang']
-  spec.email         = ['tonytonyjan@gmail.com']
-  spec.summary       = '歐付寶（Allpay）API 包裝'
-  spec.description   = '歐付寶（Allpay）API 包裝'
-  spec.homepage      = "https://github.com/tonytonyjan/allpay"
+  spec.authors       = ['John Liu']
+  spec.email         = ['johnliu33@gmail.com']
+  spec.summary       = '歐付寶物流（Allpay Logistics）API 包裝'
+  spec.description   = '歐付寶物流（Allpay Logistics）API 包裝'
+  spec.homepage      = "https://github.com/johnliu33/allpay_logistics"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

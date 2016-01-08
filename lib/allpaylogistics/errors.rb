@@ -1,4 +1,4 @@
-module Allpay
+module Allpaylogistics
   # Generic Allpay exception class.
   class AllpayError < StandardError; end
   class MissingOption < AllpayError; end

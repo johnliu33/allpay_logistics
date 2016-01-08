@@ -5,7 +5,7 @@ require 'allpaylogistics/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'allpay_logistics'
-  spec.version       = Allpay::VERSION
+  spec.version       = Allpaylogistics::VERSION
   spec.authors       = ['John Liu']
   spec.email         = ['johnliu33@gmail.com']
   spec.summary       = '歐付寶物流（Allpay Logistics）API 包裝'

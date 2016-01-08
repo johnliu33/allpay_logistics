@@ -1,5 +1,5 @@
 require 'allpaylogistics/version'
 require 'allpaylogistics/client'
 
-module Allpay
+module Allpaylogistics
 end

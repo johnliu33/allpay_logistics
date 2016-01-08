@@ -17,8 +17,8 @@ gem install allpay_logistics_client
 ## 使用
 
 ```ruby
-test_client = Allpay::Client.new(mode: :test)
-production_client = Allpay::Client.new({
+test_client = Allpaylogistics::Client.new(mode: :test)
+production_client = Allpaylogistics::Client.new({
   merchant_id: 'MERCHANT_ID',
   hash_key: 'HASH_KEY',
   hash_iv: 'HASH_IV'
@@ -42,7 +42,7 @@ test_client.request '/Cashier/QueryTradeInfo',
 - 使用時不用煩惱 `MerchantID` 與 `CheckMacValue`，正如上述範例一樣。
 - `/Cashier/AioCheckOut` 回傳的內容是 HTML，這個請求應該是交給瀏覽器發送的，所以不應該寫出 `client.request '/Cashier/AioCheckOut'` 這樣的內容。
 
-## Allpay::Client
+## Allpaylogistics::Client
 
 實體方法                                                     | 回傳                | 說明
 ---                                                          | ---                 | ---

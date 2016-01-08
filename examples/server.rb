@@ -10,7 +10,7 @@ set :port, 3000
 
 
 get '/' do  #超商物流下單
-  client = Allpay::Client.new(mode: :test)
+  client = Allpaylogistics::Client.new(mode: :test)
   @params = client.generate_checkout_params({
     MerchantTradeNo: SecureRandom.hex(4),
     LogisticsType: 'CVS',
@@ -25,16 +25,16 @@ end
 
 get '/queryOrder' do #查詢物流狀況
   
-  client = Allpay::Client.new(mode: :test)
+  client = Allpaylogistics::Client.new(mode: :test)
   result_hash = client.query_logistics_trade_info '15311'
-  byebug
+  
   result_hash['AllPayLogisticsID'] + ',' + result_hash['LogisticsStatus']
 
 
 end
 
 get '/cancelC2COrder' do #超商退貨
-    client = Allpay::Client.new(mode: :test)
+    client = Allpaylogistics::Client.new(mode: :test)
     @params = client.generate_checkout_params({
     AllPayLogisticsID: '15306',
     CVSPaymentNo: 'F0020325',
@@ -45,7 +45,7 @@ get '/cancelC2COrder' do #超商退貨
 end
 
 get '/printUniC2COrderInfo' do  #列印統一物流單
-  client = Allpay::Client.new(mode: :test)
+  client = Allpaylogistics::Client.new(mode: :test)
   @params = client.generate_checkout_params({
     MerchantTradeNo: SecureRandom.hex(4),
     AllPayLogisticsID: '15311',
@@ -66,7 +66,7 @@ post '/notify' do
   @cvsAddress = params['CVSAddress']
   @cvsTelephone = params['CVSTelephone']
 
-  client = Allpay::Client.new(mode: :test)
+  client = Allpaylogistics::Client.new(mode: :test)
   @params = client.generate_checkout_params({
     MerchantID: @merchantId,
     MerchantTradeNo: @merchantTradeNo,

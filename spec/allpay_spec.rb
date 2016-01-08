@@ -1,10 +1,10 @@
 # encoding: utf-8
 require 'spec_helper'
 require 'securerandom'
-require 'byebug'
-describe Allpay::Client do
+# require 'byebug'
+describe Allpaylogistics::Client do
   before :all do
-    @client = Allpay::Client.new(mode: :test)
+    @client = Allpaylogistics::Client.new(mode: :test)
   end
 
   # it '#api /Cashier/AioCheckOut' do

@@ -5,9 +5,9 @@ require 'digest'
 require 'allpaylogistics/errors'
 require 'allpaylogistics/core_ext/hash'
 #require 'awesome_print'
-require 'byebug'
+#require 'byebug'
 
-module Allpay
+module Allpaylogistics
   class Client
     PRODUCTION_API_HOST = 'https://logistics.allpay.com.tw/Express/map'.freeze
     TEST_API_HOST = 'http://logistics-stage.allpay.com.tw/Express/map'.freeze

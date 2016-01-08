@@ -9,7 +9,7 @@
 ## 安裝
 
 ```bash
-gem install allpay_logistics_client
+gem 'allpay_logistics','~>0.0.2', github: 'johnliu33/allpay_logistics'
 ```
 
 <!--## 使用

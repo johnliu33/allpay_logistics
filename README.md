@@ -5,16 +5,16 @@
 這是歐付寶物流的 API 的 Ruby 包裝，是參考[tonytonyjan](https://github.com/tonytonyjan)的[https://github.com/tonytonyjan/allpay](https://github.com/tonytonyjan/allpay)改寫成的，更多資訊參考歐付寶的[官方文件](https://www.allpay.com.tw/Content/files/allpay_030.pdf)。
 
 - 這不是 Rails 插件，只是個 API 包裝。
-- 使用時只需要傳送需要的參數即可，不用產生檢查碼，`allpay_client` 會自己產生。
+<!--- 使用時只需要傳送需要的參數即可，不用產生檢查碼，`allpay_client` 會自己產生。
 - 錯誤代碼太多且會不斷增加，筆者不另行撰寫，官方也建議查網站上的代碼清單。
-
+-->
 ## 安裝
 
 ```bash
 gem install allpay_logistics_client
 ```
 
-## 使用
+<!--## 使用
 
 ```ruby
 test_client = Allpaylogistics::Client.new(mode: :test)
@@ -51,12 +51,12 @@ test_client.request '/Cashier/QueryTradeInfo',
 `verify_mac(**params)`                                       | `Boolean`           | 會於檢查收到的參數，其檢查碼是否正確，這用在歐付寶物的 `ReturnURL` 與 `PeriodReturnURL` 參數上。
 `query_trade_info(merchant_trade_number, platform = nil)`    | `Hash`              | `/Cashier/QueryTradeInfo` 的捷徑方法，將 `TimeStamp` 設定為當前時間
 `query_period_credit_card_trade_info(merchant_trade_number)` | `Hash`              | `/Cashier/QueryPeriodCreditCardTradeInfo` 的捷徑方法，將 `TimeStamp` 設定為當前時間
-`generate_checkout_params`                                   | `Hash`              | 用於產生 `/Cashier/AioCheckOut` 表單需要的參數，`MerchantTradeDate`、`MerchantTradeNo`、`PaymentType`，可省略。
+`generate_checkout_params`                                   | `Hash`              | 用於產生 `/Cashier/AioCheckOut` 表單需要的參數，`MerchantTradeDate`、`MerchantTradeNo`、`PaymentType`，可省略。-->
 
 ## 使用範例
 
 ```bash
-git clone git@github.com:tonytonyjan/allpay.git
+git clone git@github.com:johnliu33/allpay_logistics.git
 cd allpay
 bundle install
 ruby examples/server.rb

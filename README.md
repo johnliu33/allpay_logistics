@@ -57,7 +57,7 @@ test_client.request '/Cashier/QueryTradeInfo',
 
 ```bash
 git clone git@github.com:johnliu33/allpay_logistics.git
-cd allpay
+cd allpay_logistics
 bundle install
 ruby examples/server.rb
 ```
